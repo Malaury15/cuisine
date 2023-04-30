@@ -4,8 +4,6 @@
  */
 package com.mycompany.menudujour;
 
-import javafx.scene.control.Tab;
-import javafx.scene.control.TabPane;
 import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
 import javax.swing.JComponent;
