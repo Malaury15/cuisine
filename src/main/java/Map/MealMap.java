@@ -11,8 +11,16 @@ public class MealMap {
         this.theMap = theMap;
     }
 
-    public void addMap(Meal meal) {
-        theMap.put(meal.getId(), meal);
+    public void addMap(Meal meal) throws Exception{
+        if (meal instanceof MainCourse && theMap.values().stream().filter(m -> m instanceof MainCourse).count() == 3) {
+            throw new Exception("Impossible de rajouter un autre plat principal");
+        } else if ((meal instanceof Starter) && theMap.values().stream().filter(m -> m instanceof Starter).count() == 4) {
+            throw new Exception("Impossible de rajouter une autre entrée");
+        } else if ((meal instanceof Dessert) && theMap.values().stream().filter(m -> m instanceof Dessert).count() == 4) {
+            throw new Exception("Impossible de rajouter un autre dessert");
+        } else {
+            theMap.put(meal.getId(), meal);
+        }
     }
 
     public void removeMap(Integer id) {
