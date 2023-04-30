@@ -25,14 +25,13 @@ import javax.swing.JTextArea;
  */
 public class FrameMenu extends JFrame {
     
-    private PanelMenu part1;
     private PanelMenu2 part2;
     private PanelMenu3 part3; 
     //private JTextArea entree;
     //private JTextArea plat;
     
     public FrameMenu(String title){
-        PanelMenu part1 = new PanelMenu();
+   
         PanelMenu2 part2 = new PanelMenu2();
         PanelMenu3 part3 = new PanelMenu3();
         
@@ -43,7 +42,7 @@ public class FrameMenu extends JFrame {
         setLayout(new GridLayout(1, 3));
         setLocationRelativeTo(null);          
         
-        add(part1);
+      
         add(part2);
         add(part3);
         //entree = new JTextArea();

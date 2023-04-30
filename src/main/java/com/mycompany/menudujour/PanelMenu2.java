@@ -29,7 +29,6 @@ public class PanelMenu2 extends JPanel{
         label.setFont(new Font("Serif", Font.BOLD, 20));
         add(label);
         
-        
         setFont(new Font("Serif", Font.BOLD, 12));
         String[] menu = { "Entrée", "Plat", "Dessert"};
         JComboBox cb = new JComboBox(menu);
