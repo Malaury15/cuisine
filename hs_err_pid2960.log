@@ -305,7 +305,7 @@ Dynamic libraries:
 
 VM Arguments:
 jvm_args: -Dclassworlds.conf=C:\Program Files\NetBeans-16\netbeans\java\maven\bin\m2.conf -Dmaven.home=C:\Program Files\NetBeans-16\netbeans\java\maven -Dlibrary.jansi.path=C:\Program Files\NetBeans-16\netbeans\java\maven\lib\jansi-native -Dmaven.multiModuleProjectDirectory=D:\users\Malaury\Documents\NetBeansProjects\menuDuJour 
-java_command: org.codehaus.plexus.classworlds.launcher.Launcher -Dexec.vmArgs= -Dexec.args=${exec.vmArgs} -classpath %classpath ${exec.mainClass} ${exec.appArgs} -Dexec.appArgs= -Dexec.mainClass=com.mycompany.menudujour.MenuDuJour -Dexec.executable=C:\Program Files\Java\jdk1.8.0_281\bin\java.exe -Dmaven.ext.class.path=C:\Program Files\NetBeans-16\netbeans\java\maven-nblib\netbeans-eventspy.jar -Dfile.encoding=UTF-8 org.codehaus.mojo:exec-maven-plugin:3.0.0:exec
+java_command: org.codehaus.plexus.classworlds.launcher.Launcher -Dexec.vmArgs= -Dexec.args=${exec.vmArgs} -classpath %classpath ${exec.mainClass} ${exec.appArgs} -Dexec.appArgs= -Dexec.mainClass=com.mycompany.menudujour.PanelDessert.MenuDuJour -Dexec.executable=C:\Program Files\Java\jdk1.8.0_281\bin\java.exe -Dmaven.ext.class.path=C:\Program Files\NetBeans-16\netbeans\java\maven-nblib\netbeans-eventspy.jar -Dfile.encoding=UTF-8 org.codehaus.mojo:exec-maven-plugin:3.0.0:exec
 java_class_path (initial): C:\Program Files\NetBeans-16\netbeans\java\maven\boot\plexus-classworlds-2.6.0.jar
 Launcher Type: SUN_STANDARD
 
