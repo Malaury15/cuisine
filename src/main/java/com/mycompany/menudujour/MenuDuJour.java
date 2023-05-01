@@ -62,6 +62,11 @@ import Map.*;
             dessertMap.addMap(dessert4);
           //  dessertMap.addMap(dessert5);
 
+            //Affichage des entrées, plats et desserts
+            System.out.println(starter1.toString());
+            System.out.println(mainCourse1.toString());
+            System.out.println(dessert1.toString());
+
             // Affichage du contenu des HashMaps
             System.out.println(starterMap.toString());
             System.out.println(mainCourseMap.toString());

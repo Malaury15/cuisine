@@ -38,4 +38,11 @@ public class Meal {
         public void setQuantity(int quantity) {
             this.quantity = quantity;
         }
+
+    @Override
+    public String toString() {
+        return "Id = " + id +
+                ", Nom = " + name +
+                ", Quantité = " + quantity + "\n";
     }
+}
