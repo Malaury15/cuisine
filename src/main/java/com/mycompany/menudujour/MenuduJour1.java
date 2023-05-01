@@ -46,7 +46,7 @@ public class MenuduJour1 extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jSpinner1 = new javax.swing.JSpinner();
         jButton1 = new javax.swing.JButton();
-        jPanel4 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -78,11 +78,11 @@ public class MenuduJour1 extends javax.swing.JFrame {
         });
 
         // Création d'un JLabel pour le nom du plat
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 204, 153));
-        jLabel3.setText("Nom :");
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 204, 153));
+        jLabel1.setText("Nom :");
         // Ajout du JLabel Nom au bandeau
-        jPanel1.add(jLabel3);
+        jPanel1.add(jLabel1);
 
         // Création d'un JTextField pour entrer le nom du plat
         jTextField1.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
@@ -91,11 +91,11 @@ public class MenuduJour1 extends javax.swing.JFrame {
         jPanel1.add(jTextField1);
 
         // Création d'un JLabel pour la quantité
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 204, 153));
-        jLabel4.setText("Quantité :");
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 204, 153));
+        jLabel2.setText("Quantité :");
         // Ajout du JLabel Qte au bandeau
-        jPanel1.add(jLabel4);
+        jPanel1.add(jLabel2);
 
         // Ajout d'un JSpinner pour la quantité
         jSpinner1.setPreferredSize(new java.awt.Dimension(60, 40));
@@ -118,35 +118,38 @@ public class MenuduJour1 extends javax.swing.JFrame {
             }
         });
 
-        jPanel4.setBackground(new java.awt.Color(0, 204, 153));
+        // Création d'un JPanel sur fond vert pour le bas de la fenêtre (le menu)
+        jPanel2.setBackground(new java.awt.Color(0, 204, 153));
 
-        jLabel1.setBackground(new java.awt.Color(255, 204, 51));
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Entrées:");
-
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Plats:");
-
+        // Création d'un JLabel pour les entrées
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Entrées :");
+        // Ajout de la zone de texte pour les entrées au menu (4 lignes = 4 entrées maximum)
         jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
+        jTextArea1.setRows(4);
         jScrollPane1.setViewportView(jTextArea1);
 
+        // Création d'un JLabel pour les plats
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Plats :");
+        // Ajout de la zone de texte pour les plats au menu (3 lignes = 3 plats maximum)
         jTextArea2.setColumns(20);
-        jTextArea2.setRows(5);
+        jTextArea2.setRows(3);
         jScrollPane2.setViewportView(jTextArea2);
 
+        // Création d'un JLabel pour les desserts
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Desserts:");
-
+        jLabel5.setText("Desserts :");
+        // Ajout de la zone de texte pour les desserts au menu (4 lignes = 4 desserts maximum)
         jTextArea3.setColumns(20);
-        jTextArea3.setRows(5);
+        jTextArea3.setRows(4);
         jScrollPane3.setViewportView(jTextArea3);
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
@@ -154,8 +157,8 @@ public class MenuduJour1 extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4)
                             .addComponent(jLabel5))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 430, Short.MAX_VALUE)
@@ -167,11 +170,11 @@ public class MenuduJour1 extends javax.swing.JFrame {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
+                .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
+                .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -181,7 +184,7 @@ public class MenuduJour1 extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        getContentPane().add(jPanel4, java.awt.BorderLayout.CENTER);
+        getContentPane().add(jPanel2, java.awt.BorderLayout.CENTER);
 
         jPanel5.setBackground(new java.awt.Color(0, 204, 153));
         jPanel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -274,7 +277,7 @@ public class MenuduJour1 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
