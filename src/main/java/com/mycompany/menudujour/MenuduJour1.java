@@ -5,6 +5,9 @@
 
 package com.mycompany.menudujour;
 
+import javax.swing.*;
+import java.awt.*;
+
 /**
  *
  * @author Malaury
@@ -13,6 +16,17 @@ public class MenuduJour1 extends javax.swing.JFrame {
 
     /** Creates new form MenuduJour1 */
     public MenuduJour1() {
+        //Définition du titre de la fenêtre
+        setTitle("Malaury's Restaurant");
+        // Fermer la fenêtre en cliquant sur la croix
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        //Afficher la fenêtre au centre de l'écran
+        setSize(500, 500);
+        setLocationRelativeTo(null);
+        //Affichage de la fenêtre en plein écran
+        //setExtendedState(JFrame.MAXIMIZED_BOTH);
+
+        //Initialisation des composants de la fenêtre
         initComponents();
     }
 
@@ -45,47 +59,64 @@ public class MenuduJour1 extends javax.swing.JFrame {
         jPanel5 = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        // Création d'un JPanel sur fond blanc pour le haut de la fenêtre (le bandeau)
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(jPanel1, java.awt.BorderLayout.PAGE_START);
 
-        jComboBox1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jComboBox1.setForeground(new java.awt.Color(0, 204, 153));
+        // Création d'un JComboBox pour le choix du type de plat
+        jComboBox1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Entrées", "Plats", "Desserts" }));
+        // Ajout de la comboBox au bandeau
+        jPanel1.add(jComboBox1);
+
+      //Méthode pour récupérer le choix de l'utilisateur entre Entrées, Plats et Desserts avec le listener
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jComboBox1);
 
+        // Création d'un JLabel pour le nom du plat
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 204, 153));
-        jLabel3.setText("Nom:");
+        jLabel3.setText("Nom :");
+        // Ajout du JLabel Nom au bandeau
         jPanel1.add(jLabel3);
 
-        jTextField1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jTextField1.setText("jTextField1");
+        // Création d'un JTextField pour entrer le nom du plat
+        jTextField1.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
+        jTextField1.setPreferredSize(new java.awt.Dimension(200, 50));
+        // Ajout du champ pour le nom au bandeau
         jPanel1.add(jTextField1);
 
+        // Création d'un JLabel pour la quantité
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 204, 153));
-        jLabel4.setText("Quantité:");
+        jLabel4.setText("Quantité :");
+        // Ajout du JLabel Qte au bandeau
         jPanel1.add(jLabel4);
+
+        // Ajout d'un JSpinner pour la quantité
+        jSpinner1.setPreferredSize(new java.awt.Dimension(60, 40));
+        SpinnerNumberModel model = new SpinnerNumberModel(1, 1, Integer.MAX_VALUE, 1); // valeur initiale = 1, valeur minimale = 1, valeur maximale = la plus grande valeur possible pour un entier, pas de 1
+        jSpinner1.setModel(model);
         jPanel1.add(jSpinner1);
 
+        // Création d'un JButton pour ajouter le plat au menu
         jButton1.setBackground(new java.awt.Color(0, 204, 153));
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Enter");
+       // jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setText("Ajouter");
+        // Ajout du JButton Ajouter au bandeau
+        jPanel1.add(jButton1);
+
+        //Méthode pour ajouter le plat au menu avec le listener
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1);
-
-        getContentPane().add(jPanel1, java.awt.BorderLayout.PAGE_START);
 
         jPanel4.setBackground(new java.awt.Color(0, 204, 153));
 
