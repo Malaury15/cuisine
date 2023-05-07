@@ -1,0 +1,58 @@
+{
+	"starters": [
+		{
+			"id": 1,
+			"description": "Salade de tomate",
+			"qty": 28
+		},
+		{
+			"id": 2,
+			"description": "Sardine à l'huile",
+			"qty": 29
+		},
+		{
+			"id": 3,
+			"description": "Pâté de campagne",
+			"qty": 27
+		}
+		
+	],
+	"main_courses": [
+		{
+			"id": 1,
+			"description": "Steack haché avec ses frites",
+			"qty": 32
+		},
+		{
+			"id": 2,
+			"description": "Rôti de porc dans l'échine avec ses pâtes",
+			"qty": 29
+		},
+		{
+			"id": 3,
+			"description": "Filet de truite avec ses haricots verts",
+			"qty": 24
+		}],
+	"desserts": [
+		{
+			"id": 1,
+			"description": "Tarte aux pommes",
+			"qty": 35
+		},
+		{
+			"id": 2,
+			"description": "Mousse au chocolat",
+			"qty": 23
+		},
+		{
+			"id": 3,
+			"description": "Plateau de fromages",
+			"qty": 27
+		},
+		{
+			"id": 4,
+			"description": "Fruit de saison",
+			"qty": 38
+		}
+	]
+}

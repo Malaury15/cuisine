@@ -1,8 +1,17 @@
 package com.mycompany.menudujour;
 
-import Entity.*;
+import Entity.Dessert;
+import Entity.MainCourse;
+import Entity.Meal;
+import Entity.Starter;
+import Map.DessertMap;
+import Map.MainCourseMap;
+import Map.StarterMap;
+
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.HashMap;
-import Map.*;
+import org.json.simple.*;
 
 
 /**
@@ -14,7 +23,7 @@ import Map.*;
         public static void main(String[] args) throws Exception {
            // new FrameMenu("Malaury's Restaurant");
 
-            // Création des Hashmaps pour les entrées, plats et desserts
+        /*    // Création des Hashmaps pour les entrées, plats et desserts
             HashMap<Integer, Meal> starters = new HashMap<>();
             HashMap<Integer, Meal> mains = new HashMap<>();
             HashMap<Integer, Meal> desserts = new HashMap<>();
@@ -80,6 +89,21 @@ import Map.*;
             // Affichage du contenu des HashMaps modifiées
             System.out.println(starterMap.toString());
             System.out.println(mainCourseMap.toString());
-            System.out.println(dessertMap.toString());
+            System.out.println(dessertMap.toString());*/
+
+            MenuJson menu = new MenuJson();
+
+            // Ajouter les plats
+            menu.addStarter("Salade verte", 2);
+            menu.addMainCouse("Poulet rôti", 1);
+            menu.addDessert("Tarte aux pommes", 3);
+
+            // Ecrire le JSON dans un fichier
+            try (FileWriter file = new FileWriter("menu.json")) {
+                JSONValue.writeJSONString(menu.getMenuJson(), file);
+                System.out.println("Le menu a été écrit dans le fichier menu.json.");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }

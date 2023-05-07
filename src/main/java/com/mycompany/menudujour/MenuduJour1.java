@@ -1,16 +1,22 @@
 package com.mycompany.menudujour;
 
 import javax.swing.*;
+import java.awt.*;
+import java.io.FileWriter;
+import java.io.IOException;
+import org.json.simple.JSONObject;
+import org.json.simple.JSONArray;
 
 /**
  *
  * @author Malaury
  */
-public class MenuduJour1 extends javax.swing.JFrame {
+public class MenuduJour1 extends JFrame {
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
+    // Déclaration des variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -28,12 +34,11 @@ public class MenuduJour1 extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextArea jTextArea3;
     private javax.swing.JTextField jTextField1;
-    // End of variables declaration//GEN-END:variables
 
     public MenuduJour1() {
         //Définition du titre de la fenêtre
         setTitle("Malaury's Restaurant");
-        // Fermer la fenêtre en cliquant sur la croix
+        // Fermer la fenêtre et arrêter le programme en cliquant sur la croix
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         //Afficher la fenêtre au centre de l'écran
         setSize(500, 500);
@@ -46,7 +51,7 @@ public class MenuduJour1 extends javax.swing.JFrame {
     }
 
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // Méthode pour initialiser les composants de la fenêtre
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
@@ -68,24 +73,18 @@ public class MenuduJour1 extends javax.swing.JFrame {
         jTextArea3 = new javax.swing.JTextArea();
         jPanel5 = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
 
 
         // Création d'un JPanel sur fond blanc pour le haut de la fenêtre (le bandeau)
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(jPanel1, java.awt.BorderLayout.PAGE_START);
+        getContentPane().add(jPanel1, BorderLayout.PAGE_START);
 
         // Création d'un JComboBox pour le choix du type de plat
         jComboBox1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Entrées", "Plats", "Desserts" }));
         // Ajout de la comboBox au bandeau
         jPanel1.add(jComboBox1);
-
-      //Méthode pour récupérer le choix de l'utilisateur entre Entrées, Plats et Desserts avec le listener
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
-            }
-        });
 
         // Création d'un JLabel pour le nom du plat
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
@@ -127,6 +126,20 @@ public class MenuduJour1 extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+
+        // Création d'un JButton pour supprimer le plat du menu
+        jButton2.setBackground(new java.awt.Color(0, 204, 153));
+        jButton2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2.setText("Supprimer");
+
+        // Ajout du JButton Supprimer au bandeau
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton2);
 
         // Création d'un JPanel sur fond vert pour le bas de la fenêtre (le menu)
         jPanel2.setBackground(new java.awt.Color(0, 204, 153));
@@ -198,58 +211,43 @@ public class MenuduJour1 extends javax.swing.JFrame {
         jPanel5.setBackground(new java.awt.Color(0, 204, 153));
         jPanel5.setForeground(new java.awt.Color(255, 255, 255));
 
-        jButton2.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(0, 204, 153));
-        jButton2.setText("VALIDER");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jButton3.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(0, 204, 153));
+        jButton3.setText("VALIDER");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(171, 171, 171)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(176, Short.MAX_VALUE))
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(42, Short.MAX_VALUE))
-        );
-
+       jPanel5.add(jButton3);
         getContentPane().add(jPanel5, java.awt.BorderLayout.PAGE_END);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
+        String plat = jTextField1.getText();
+        int quantite = ((Integer)jSpinner1.getValue()) ;
+        String texte = plat + " : " + quantite;
+        String selectedValue;
+        if ((selectedValue = jComboBox1.getSelectedItem().toString())== "Entrées") {
+            jTextArea1.append(texte + "\n");
+        }
+        if ((selectedValue = jComboBox1.getSelectedItem().toString())=="Plats") {
+            jTextArea2.append(texte + "\n");
+        }
+        if ( (selectedValue = jComboBox1.getSelectedItem().toString())=="Desserts") {
+            jTextArea3.append(texte + "\n");
+        }
+    }
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
+        // Définition du look and feel Nimbus pour l'interface graphique
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -266,7 +264,6 @@ public class MenuduJour1 extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(MenuduJour1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
