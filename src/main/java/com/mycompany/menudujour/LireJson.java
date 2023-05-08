@@ -33,7 +33,7 @@ public class LireJson {
 
             // Parcourir les entrées du menu
             JSONArray starters = (JSONArray) jsonO.get("starters");
-            System.out.println("Entrées :");
+           // System.out.println("Entrées :");
             for (Object obj : starters) {
                 JSONObject plat = (JSONObject) obj;
                 int id = ((Long) plat.get("id")).intValue();
@@ -46,7 +46,7 @@ public class LireJson {
 
             // Parcourir les plats principaux du menu
             JSONArray main_courses = (JSONArray) jsonO.get("main_courses");
-            System.out.println("Plats principaux :");
+           // System.out.println("Plats principaux :");
             for (Object obj : main_courses) {
                 JSONObject plat = (JSONObject) obj;
                 int id = ((Long) plat.get("id")).intValue();
@@ -59,7 +59,7 @@ public class LireJson {
 
             // Parcourir les desserts du menu
             JSONArray desserts = (JSONArray) jsonO.get("desserts");
-            System.out.println("Desserts :");
+         //   System.out.println("Desserts :");
             for (Object obj : desserts) {
                 JSONObject plat = (JSONObject) obj;
                 int id = ((Long) plat.get("id")).intValue();
