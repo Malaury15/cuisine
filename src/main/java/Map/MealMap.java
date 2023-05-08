@@ -22,6 +22,9 @@ public class MealMap {
             theMap.put(meal.getId(), meal);
         }
     }
+    public boolean containsMeal(int mealId) {
+        return theMap.containsKey(mealId);
+    }
 
     public void removeMap(Integer id) {
         theMap.remove(id);

@@ -3,18 +3,24 @@ import org.json.simple.*;
 
 public class MenuJson {
     private JSONObject menuJson;
-    private int idCounter;
+  //  private int idCounter;
+    private int startersCounter;
+    private int mainCoursesCounter;
+    private int dessertsCounter;
 
     public MenuJson() {
         menuJson = new JSONObject();
-        idCounter = 0;
+       // idCounter = 0;
+        startersCounter = 0;
+        mainCoursesCounter = 0;
+        dessertsCounter = 0;
         menuJson.put("starters", new JSONArray());
         menuJson.put("main_courses", new JSONArray());
         menuJson.put("desserts", new JSONArray());
     }
     private void addItem(String type, String nom, int quantite) {
         JSONObject item = new JSONObject();
-        item.put("id", idCounter++);
+        item.put("id", getNextId(type));
         item.put("description", nom);
         item.put("qty", quantite);
         JSONArray menu = (JSONArray) menuJson.get(type);
@@ -35,6 +41,21 @@ public class MenuJson {
 
     public JSONObject getMenuJson() {
         return menuJson;
+    }
+    private int getNextId(String type) {
+        int id = -1;
+        switch (type) {
+            case "starters":
+                id = ++startersCounter;
+                break;
+            case "main_courses":
+                id = ++mainCoursesCounter;
+                break;
+            case "desserts":
+                id = ++dessertsCounter;
+                break;
+        }
+        return id;
     }
     @Override
     public String toString() {

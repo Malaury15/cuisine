@@ -3,17 +3,17 @@
 		{
 			"id": 1,
 			"description": "Salade de tomate",
-			"qty": 28
+			"qty": 2
 		},
 		{
 			"id": 2,
 			"description": "Sardine à l'huile",
-			"qty": 29
+			"qty": 1
 		},
 		{
 			"id": 3,
 			"description": "Pâté de campagne",
-			"qty": 27
+			"qty": 3
 		}
 		
 	],
@@ -21,38 +21,38 @@
 		{
 			"id": 1,
 			"description": "Steack haché avec ses frites",
-			"qty": 32
+			"qty": 5
 		},
 		{
 			"id": 2,
 			"description": "Rôti de porc dans l'échine avec ses pâtes",
-			"qty": 29
+			"qty": 3
 		},
 		{
 			"id": 3,
 			"description": "Filet de truite avec ses haricots verts",
-			"qty": 24
+			"qty": 2
 		}],
 	"desserts": [
 		{
 			"id": 1,
 			"description": "Tarte aux pommes",
-			"qty": 35
+			"qty": 1
 		},
 		{
 			"id": 2,
 			"description": "Mousse au chocolat",
-			"qty": 23
+			"qty": 1
 		},
 		{
 			"id": 3,
 			"description": "Plateau de fromages",
-			"qty": 27
+			"qty": 0
 		},
 		{
 			"id": 4,
 			"description": "Fruit de saison",
-			"qty": 38
+			"qty": 2
 		}
 	]
 }

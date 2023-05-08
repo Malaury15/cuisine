@@ -41,7 +41,7 @@ public class MenuduJour1 extends JFrame {
         //Définition du titre de la fenêtre
         setTitle("Malaury's Restaurant");
         // Fermer la fenêtre et arrêter le programme en cliquant sur la croix
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         //Afficher la fenêtre au centre de l'écran
         setSize(500, 500);
         setLocationRelativeTo(null);
@@ -156,6 +156,7 @@ public class MenuduJour1 extends JFrame {
         // Ajout de la zone de texte pour les entrées au menu
         jTextArea1.setColumns(20);
         jTextArea1.setRows(4);
+       // jTextArea1.setEditable(false);
         jScrollPane1.setViewportView(jTextArea1);
 
         // Création d'un JLabel pour les plats
@@ -165,6 +166,7 @@ public class MenuduJour1 extends JFrame {
         // Ajout de la zone de texte pour les plats au menu
         jTextArea2.setColumns(20);
         jTextArea2.setRows(4);
+      //  jTextArea2.setEditable(false);
         jScrollPane2.setViewportView(jTextArea2);
 
         // Création d'un JLabel pour les desserts
@@ -174,6 +176,7 @@ public class MenuduJour1 extends JFrame {
         // Ajout de la zone de texte pour les desserts au menu
         jTextArea3.setColumns(20);
         jTextArea3.setRows(4);
+       // jTextArea3.setEditable(false);
         jScrollPane3.setViewportView(jTextArea3);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel2);
@@ -256,7 +259,7 @@ public class MenuduJour1 extends JFrame {
         // Ecrire le JSON dans un fichier
         try (FileWriter file = new FileWriter("menu2.json")) {
             JSONValue.writeJSONString(menuJson.getMenuJson(), file);
-            System.out.println("Le menu a été écrit dans le fichier menu.json.");
+            System.out.println("Le menu a été écrit dans le fichier menu2.json.");
         } catch (IOException e) {
             e.printStackTrace();
         }
