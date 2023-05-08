@@ -92,9 +92,10 @@ import org.json.simple.*;
             System.out.println(dessertMap.toString());*/
 
             MenuJson menu = new MenuJson();
+            System.out.println(menu.toString());
 
             // Ajouter les plats
-            menu.addStarter("Salade verte", 2);
+            /*menu.addStarter("Salade verte", 2);
             menu.addMainCouse("Poulet rôti", 1);
             menu.addDessert("Tarte aux pommes", 3);
 
@@ -104,6 +105,6 @@ import org.json.simple.*;
                 System.out.println("Le menu a été écrit dans le fichier menu.json.");
             } catch (IOException e) {
                 e.printStackTrace();
-            }
+            }*/
         }
     }

@@ -36,4 +36,32 @@ public class MenuJson {
     public JSONObject getMenuJson() {
         return menuJson;
     }
+    @Override
+    public String toString() {
+        JSONArray starters = (JSONArray) menuJson.get("starters");
+        JSONArray main_courses = (JSONArray) menuJson.get("main_courses");
+        JSONArray desserts = (JSONArray) menuJson.get("desserts");
+
+        StringBuilder sb = new StringBuilder();
+        sb.append("Starters:\n");
+        for (Object o : starters) {
+            JSONObject item = (JSONObject) o;
+            sb.append("- ").append(item.get("description")).append(", qty: ").append(item.get("qty")).append("\n");
+        }
+
+        sb.append("Main courses:\n");
+        for (Object o : main_courses) {
+            JSONObject item = (JSONObject) o;
+            sb.append("- ").append(item.get("description")).append(", qty: ").append(item.get("qty")).append("\n");
+        }
+
+        sb.append("Desserts:\n");
+        for (Object o : desserts) {
+            JSONObject item = (JSONObject) o;
+            sb.append("- ").append(item.get("description")).append(", qty: ").append(item.get("qty")).append("\n");
+        }
+
+        return sb.toString();
+    }
+
 }

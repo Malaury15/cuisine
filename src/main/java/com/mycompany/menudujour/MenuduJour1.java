@@ -6,6 +6,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONArray;
+import org.json.simple.JSONValue;
 
 /**
  *
@@ -14,6 +15,7 @@ import org.json.simple.JSONArray;
 public class MenuduJour1 extends JFrame {
 
     // Déclaration des variables
+    private MenuJson menuJson;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -45,6 +47,8 @@ public class MenuduJour1 extends JFrame {
         setLocationRelativeTo(null);
         //Affichage de la fenêtre en plein écran
         //setExtendedState(JFrame.MAXIMIZED_BOTH);
+
+        menuJson = new MenuJson();
 
         //Initialisation des composants de la fenêtre
         initComponents();
@@ -216,9 +220,10 @@ public class MenuduJour1 extends JFrame {
         jButton3.setText("VALIDER");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jButton3ActionPerformed(evt);
             }
         });
+
 
        jPanel5.add(jButton3);
         getContentPane().add(jPanel5, java.awt.BorderLayout.PAGE_END);
@@ -227,24 +232,35 @@ public class MenuduJour1 extends JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
-        String plat = jTextField1.getText();
+        String meal = jTextField1.getText();
         int quantite = ((Integer)jSpinner1.getValue()) ;
-        String texte = plat + " : " + quantite;
-        String selectedValue;
-        if ((selectedValue = jComboBox1.getSelectedItem().toString())== "Entrées") {
+        String texte = meal + " : " + quantite;
+        String selectedValue = jComboBox1.getSelectedItem().toString();
+
+        if (selectedValue.equals("Entrées")) {
             jTextArea1.append(texte + "\n");
-        }
-        if ((selectedValue = jComboBox1.getSelectedItem().toString())=="Plats") {
+            menuJson.addStarter(meal, quantite);
+        } else if (selectedValue.equals("Plats")) {
             jTextArea2.append(texte + "\n");
-        }
-        if ( (selectedValue = jComboBox1.getSelectedItem().toString())=="Desserts") {
+            menuJson.addMainCouse(meal, quantite);
+        } else if (selectedValue.equals("Desserts")) {
             jTextArea3.append(texte + "\n");
+            menuJson.addDessert(meal, quantite);
         }
     }
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {
+        // Ecrire le JSON dans un fichier
+        try (FileWriter file = new FileWriter("menu2.json")) {
+            JSONValue.writeJSONString(menuJson.getMenuJson(), file);
+            System.out.println("Le menu a été écrit dans le fichier menu.json.");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     public static void main(String args[]) {
         // Définition du look and feel Nimbus pour l'interface graphique
