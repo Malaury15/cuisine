@@ -3,14 +3,14 @@ import org.json.simple.*;
 
 public class MenuJson {
     private JSONObject menuJson;
-  //  private int idCounter;
+    //  private int idCounter;
     private int startersCounter;
     private int mainCoursesCounter;
     private int dessertsCounter;
 
     public MenuJson() {
         menuJson = new JSONObject();
-       // idCounter = 0;
+        // idCounter = 0;
         startersCounter = 0;
         mainCoursesCounter = 0;
         dessertsCounter = 0;
@@ -18,6 +18,7 @@ public class MenuJson {
         menuJson.put("main_courses", new JSONArray());
         menuJson.put("desserts", new JSONArray());
     }
+
     private void addItem(String type, String nom, int quantite) {
         JSONObject item = new JSONObject();
         item.put("id", getNextId(type));
@@ -31,7 +32,7 @@ public class MenuJson {
         addItem("starters", nom, quantite);
     }
 
-    public void addMainCouse(String nom, int quantite) {
+    public void addMainCourse(String nom, int quantite) {
         addItem("main_courses", nom, quantite);
     }
 
@@ -42,6 +43,7 @@ public class MenuJson {
     public JSONObject getMenuJson() {
         return menuJson;
     }
+
     private int getNextId(String type) {
         int id = -1;
         switch (type) {
@@ -57,8 +59,8 @@ public class MenuJson {
         }
         return id;
     }
-    @Override
-    public String toString() {
+
+   /*public String toString() {
         JSONArray starters = (JSONArray) menuJson.get("starters");
         JSONArray main_courses = (JSONArray) menuJson.get("main_courses");
         JSONArray desserts = (JSONArray) menuJson.get("desserts");
@@ -83,6 +85,55 @@ public class MenuJson {
         }
 
         return sb.toString();
+    }*/
+   public void removeLastStarters() throws IllegalStateException {
+       JSONArray starters = getStarters();
+       if (starters.size() == 0) {
+           throw new IllegalStateException("La liste d'entrées est déjà vide !");
+       } else {
+           starters.remove(starters.size() - 1);
+       }
+   }
+
+    public void removeLastMainCourses() throws IllegalStateException {
+        JSONArray mainCourses = getMainCourses();
+        if (mainCourses.size() == 0) {
+            throw new IllegalStateException("La liste de plats principaux est déjà vide !");
+        } else {
+            mainCourses.remove(mainCourses.size() - 1);
+        }
     }
 
+    public void removeLastDesserts() throws IllegalStateException {
+        JSONArray desserts = getDesserts();
+        if (desserts.size() == 0) {
+            throw new IllegalStateException("La liste de desserts est déjà vide !");
+        } else {
+            desserts.remove(desserts.size() - 1);
+        }
+    }
+
+    public JSONArray getStarters() {
+        return (JSONArray) menuJson.get("starters");
+    }
+
+    public int getNumberOfStarters() {
+        return getStarters().size();
+    }
+
+    public JSONArray getMainCourses() {
+        return (JSONArray) menuJson.get("main_courses");
+    }
+
+    public int getNumberOfMainCourses() {
+        return getMainCourses().size();
+    }
+
+    public JSONArray getDesserts() {
+        return (JSONArray) menuJson.get("desserts");
+    }
+
+    public int getNumberOfDesserts() {
+        return getDesserts().size();
+    }
 }

@@ -1,6 +1,7 @@
 package com.mycompany.menudujour;
 
 import javax.swing.*;
+import javax.swing.text.BadLocationException;
 import java.awt.*;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -156,7 +157,7 @@ public class MenuduJour1 extends JFrame {
         // Ajout de la zone de texte pour les entrées au menu
         jTextArea1.setColumns(20);
         jTextArea1.setRows(4);
-       // jTextArea1.setEditable(false);
+        jTextArea1.setEditable(false);
         jScrollPane1.setViewportView(jTextArea1);
 
         // Création d'un JLabel pour les plats
@@ -166,7 +167,7 @@ public class MenuduJour1 extends JFrame {
         // Ajout de la zone de texte pour les plats au menu
         jTextArea2.setColumns(20);
         jTextArea2.setRows(4);
-      //  jTextArea2.setEditable(false);
+        jTextArea2.setEditable(false);
         jScrollPane2.setViewportView(jTextArea2);
 
         // Création d'un JLabel pour les desserts
@@ -176,7 +177,7 @@ public class MenuduJour1 extends JFrame {
         // Ajout de la zone de texte pour les desserts au menu
         jTextArea3.setColumns(20);
         jTextArea3.setRows(4);
-       // jTextArea3.setEditable(false);
+        jTextArea3.setEditable(false);
         jScrollPane3.setViewportView(jTextArea3);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel2);
@@ -245,25 +246,79 @@ public class MenuduJour1 extends JFrame {
             menuJson.addStarter(meal, quantite);
         } else if (selectedValue.equals("Plats")) {
             jTextArea2.append(texte + "\n");
-            menuJson.addMainCouse(meal, quantite);
+            menuJson.addMainCourse(meal, quantite);
         } else if (selectedValue.equals("Desserts")) {
             jTextArea3.append(texte + "\n");
             menuJson.addDessert(meal, quantite);
         }
     }
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {
-        // Ecrire le JSON dans un fichier
-        try (FileWriter file = new FileWriter("menu2.json")) {
-            JSONValue.writeJSONString(menuJson.getMenuJson(), file);
-            System.out.println("Le menu a été écrit dans le fichier menu2.json.");
-        } catch (IOException e) {
-            e.printStackTrace();
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
+        String selectedValue = jComboBox1.getSelectedItem().toString();
+
+        if (selectedValue.equals("Entrées")) {
+            try {
+                menuJson.removeLastStarters();
+                String text = jTextArea1.getText();
+                int lastLineBreak = text.lastIndexOf("\n", text.length() - 2);
+                jTextArea1.setText(text.substring(0, lastLineBreak + 1));
+                JOptionPane.showMessageDialog(this, "La liste a été vidée d'un élément !");
+            } catch (IllegalStateException e) {
+                JOptionPane.showMessageDialog(this, e.getMessage(), "Erreur", JOptionPane.ERROR_MESSAGE);
+            }
+        } else if (selectedValue.equals("Plats")) {
+            try {
+                menuJson.removeLastMainCourses();
+                String text = jTextArea2.getText();
+                int lastLineBreak = text.lastIndexOf("\n", text.length() - 2);
+                jTextArea2.setText(text.substring(0, lastLineBreak + 1));
+                JOptionPane.showMessageDialog(this, "La liste a été vidée d'un élément !");
+            } catch (IllegalStateException e) {
+                JOptionPane.showMessageDialog(this, e.getMessage(), "Erreur", JOptionPane.ERROR_MESSAGE);
+            }
+        } else if (selectedValue.equals("Desserts")) {
+            try {
+                menuJson.removeLastDesserts();
+                String text = jTextArea3.getText();
+                int lastLineBreak = text.lastIndexOf("\n", text.length() - 2);
+                jTextArea3.setText(text.substring(0, lastLineBreak + 1));
+                JOptionPane.showMessageDialog(this, "La liste a été vidée d'un élément !");
+            } catch (IllegalStateException e) {
+                JOptionPane.showMessageDialog(this, e.getMessage(), "Erreur", JOptionPane.ERROR_MESSAGE);
+            }
         }
     }
+
+
+
+
+
+    // Méthode pour enregistrer le menu
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {
+        // Vérifier que le menu contient exactement 3 plats principaux et 3 ou 4 desserts et 3 ou 4 entrées
+        if (menuJson.getNumberOfStarters() < 3 || menuJson.getNumberOfStarters() > 4) {
+            JOptionPane.showMessageDialog(null, "Le nombre d'entrées doit être compris entre 3 et 4.");
+            return;
+        }
+        if (menuJson.getNumberOfMainCourses() != 3) {
+            JOptionPane.showMessageDialog(null, "Le menu doit contenir exactement 3 plats principaux.");
+            return;
+        }
+        if (menuJson.getNumberOfDesserts() < 3 || menuJson.getNumberOfDesserts() > 4) {
+            JOptionPane.showMessageDialog(null, "Le nombre de desserts doit être compris entre 3 et 4.");
+            return;
+        }
+
+        // Ecrire le JSON dans un fichier
+        try (FileWriter file = new FileWriter("menu.json")) {
+            JSONValue.writeJSONString(menuJson.getMenuJson(), file);
+            System.out.println("Le menu a été écrit dans le fichier menu.json.");
+            JOptionPane.showMessageDialog(null, "Le menu a bien été enregistré !");
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(null, "Une erreur est survenue lors de l'enregistrement du menu : " + e.getMessage());
+        }
+    }
+
 
     public static void main(String args[]) {
         // Définition du look and feel Nimbus pour l'interface graphique
