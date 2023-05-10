@@ -2,15 +2,13 @@ package com.mycompany.menudujour;
 import org.json.simple.*;
 
 public class MenuJson {
-    private JSONObject menuJson;
-    //  private int idCounter;
+    private final JSONObject menuJson;
     private int startersCounter;
     private int mainCoursesCounter;
     private int dessertsCounter;
 
     public MenuJson() {
         menuJson = new JSONObject();
-        // idCounter = 0;
         startersCounter = 0;
         mainCoursesCounter = 0;
         dessertsCounter = 0;
@@ -28,22 +26,7 @@ public class MenuJson {
         menu.add(item);
     }
 
-    public void addStarter(String nom, int quantite) {
-        addItem("starters", nom, quantite);
-    }
-
-    public void addMainCourse(String nom, int quantite) {
-        addItem("main_courses", nom, quantite);
-    }
-
-    public void addDessert(String nom, int quantite) {
-        addItem("desserts", nom, quantite);
-    }
-
-    public JSONObject getMenuJson() {
-        return menuJson;
-    }
-
+    // Méthode pour générer un id unique pour chaque item (il peut se répéter selon le type)
     private int getNextId(String type) {
         int id = -1;
         switch (type) {
@@ -60,32 +43,21 @@ public class MenuJson {
         return id;
     }
 
-   /*public String toString() {
-        JSONArray starters = (JSONArray) menuJson.get("starters");
-        JSONArray main_courses = (JSONArray) menuJson.get("main_courses");
-        JSONArray desserts = (JSONArray) menuJson.get("desserts");
+    // Méthodes pour ajouter un item dans les hashmaps selon le type
+    public void addStarter(String nom, int quantite) {
+        addItem("starters", nom, quantite);
+    }
 
-        StringBuilder sb = new StringBuilder();
-        sb.append("Starters:\n");
-        for (Object o : starters) {
-            JSONObject item = (JSONObject) o;
-            sb.append("- ").append(item.get("description")).append(", qty: ").append(item.get("qty")).append("\n");
-        }
+    public void addMainCourse(String nom, int quantite) {
+        addItem("main_courses", nom, quantite);
+    }
 
-        sb.append("Main courses:\n");
-        for (Object o : main_courses) {
-            JSONObject item = (JSONObject) o;
-            sb.append("- ").append(item.get("description")).append(", qty: ").append(item.get("qty")).append("\n");
-        }
+    public void addDessert(String nom, int quantite) {
+        addItem("desserts", nom, quantite);
+    }
 
-        sb.append("Desserts:\n");
-        for (Object o : desserts) {
-            JSONObject item = (JSONObject) o;
-            sb.append("- ").append(item.get("description")).append(", qty: ").append(item.get("qty")).append("\n");
-        }
 
-        return sb.toString();
-    }*/
+    // Méthodes pour supprimer le dernier item de chaque type dans les hashmaps
    public void removeLastStarters() throws IllegalStateException {
        JSONArray starters = getStarters();
        if (starters.size() == 0) {
@@ -111,6 +83,11 @@ public class MenuJson {
         } else {
             desserts.remove(desserts.size() - 1);
         }
+    }
+
+    // Récupérer les objets JSON et leur nombre
+    public JSONObject getMenuJson() {
+        return menuJson;
     }
 
     public JSONArray getStarters() {

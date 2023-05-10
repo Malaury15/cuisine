@@ -21,7 +21,7 @@ import org.json.simple.*;
     public class MenuDuJour {
 
         public static void main(String[] args) throws Exception {
-           // new FrameMenu("Malaury's Restaurant");
+           // Main de départ pour tester les premiers objets du menu
 
         /*    // Création des Hashmaps pour les entrées, plats et desserts
             HashMap<Integer, Meal> starters = new HashMap<>();
@@ -58,18 +58,18 @@ import org.json.simple.*;
             starterMap.addMap(starter2);
             starterMap.addMap(starter3);
             starterMap.addMap(starter4);
-           // starterMap.addMap(starter5);
+            starterMap.addMap(starter5);
 
             mainCourseMap.addMap(mainCourse1);
             mainCourseMap.addMap(mainCourse2);
             mainCourseMap.addMap(mainCourse3);
-           // mainCourseMap.addMap(mainCourse4);
+            mainCourseMap.addMap(mainCourse4);
 
             dessertMap.addMap(dessert1);
             dessertMap.addMap(dessert2);
             dessertMap.addMap(dessert3);
             dessertMap.addMap(dessert4);
-          //  dessertMap.addMap(dessert5);
+            dessertMap.addMap(dessert5);
 
             //Affichage d'une entrée, d'un plat et d'un dessert
             System.out.println(starter1.toString());
@@ -89,22 +89,12 @@ import org.json.simple.*;
             // Affichage du contenu des HashMaps modifiées
             System.out.println(starterMap.toString());
             System.out.println(mainCourseMap.toString());
-            System.out.println(dessertMap.toString());*/
-
-            MenuJson menu = new MenuJson();
-            System.out.println(menu.toString());
+            System.out.println(dessertMap.toString());
 
             // Ajouter les plats
-            /*menu.addStarter("Salade verte", 2);
+            menu.addStarter("Salade verte", 2);
             menu.addMainCouse("Poulet rôti", 1);
             menu.addDessert("Tarte aux pommes", 3);
-
-            // Ecrire le JSON dans un fichier
-            try (FileWriter file = new FileWriter("menu.json")) {
-                JSONValue.writeJSONString(menu.getMenuJson(), file);
-                System.out.println("Le menu a été écrit dans le fichier menu.json.");
-            } catch (IOException e) {
-                e.printStackTrace();
             }*/
         }
     }

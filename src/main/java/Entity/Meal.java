@@ -3,9 +3,9 @@ package Entity;
 import java.util.HashMap;
 
 public class Meal {
-        private int id;
-        private String name;
-        private int quantity;
+        protected int id;
+        protected String name;
+        protected int quantity;
 
         public Meal(int id, String name, int quantity) {
             this.id = id;
